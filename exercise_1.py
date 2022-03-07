@@ -1,18 +1,19 @@
 #This is app is designed for data entry
 
-#
+
 no_employees = input("Enter the amount of employees you have: ")
-#
-no_employees = int(no_employees)
+
 
 ages = []
 
 
-for index in range(no_employees):
+for index in range(int(no_employees)):
+
+    print(f"Enter details for employee {index + 1}")
     first_name = input("Enter employees first name: ")
 
-    if first_name.rstrip():
-            print("Success")
+    if first_name.strip():
+        print("Success")
 
     else:
         print('Unrecognized input')
@@ -20,7 +21,7 @@ for index in range(no_employees):
 
 
     last_name = input("Enter employees last name")
-    if last_name.rstrip():
+    if last_name.strip():
         print("Success")
 
     else:
@@ -36,6 +37,8 @@ for index in range(no_employees):
     else:
         print('Unrecognized input')
         continue
+
+    print(f"{first_name} {last_name} is {age} years old")
 
 print(sum(ages))
 
