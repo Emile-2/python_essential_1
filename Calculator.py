@@ -2,10 +2,12 @@
 
 # create operations
 def operation_list():
-    print("1. Add"
-          "2. Subtract"
-          "3. Multiply"
-          "4. Divide")
+    print("""1. Add
+          2. Subtract
+          3. Multiply
+          4. Divide
+          5. Exit
+          """)
 
 def add(number_one, number_two):
     return number_one + number_two
@@ -47,6 +49,17 @@ if __name__ =='__main__':
             continue
 
         elif operation == 3:
+            print(multiply(first_number, second_number))
+            continue
+
+        elif operation == 4:
+            print(divide(first_number, second_number))
+            continue
+
+        elif operation == 5:
+            print("Thanks for using the calculator")
+            break
+
 
 
 
