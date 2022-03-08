@@ -18,7 +18,14 @@ def multiply(number_one, number_two):
     return f"{number_one} x {number_two} = {number_one * number_two}"
 
 def divide(number_one, number_two):
-    return f"{number_one} / {number_two} = {number_one / number_two}"
+    try: # this allows my calculator to try the following code
+        number_one / number_two
+        #if an error im aware of occurs i can prevent it from crashing the app
+    except ZeroDivisionError:
+        #replaces the crash with my own message and continues with the code
+        print("Python doesn't allow division by zero")
+    else:
+        return f"{number_one} / {number_two} = {number_one / number_two}"
 
 def number_one(text):
     while True:
