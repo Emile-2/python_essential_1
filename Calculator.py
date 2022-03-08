@@ -25,6 +25,7 @@ if __name__ =='__main__':
     while True:
         #get input for numbers
         first_number_str = input("Please enter first number: ")
+
         second_number_str = input("please enter second number: ")
         if first_number_str.isdigit() and second_number_str.isdigit():
 
@@ -39,38 +40,29 @@ if __name__ =='__main__':
         operation_str = input("Please select which operation: ")
         if operation_str.isdigit():
             operation = int(operation_str)
-        # operation = int(operation_str)
 
-        if operation == 1:
-            print(add(first_number, second_number))
-            continue
+            if operation == 1:
+                print(add(first_number, second_number))
+                continue
 
-        elif operation == 2:
-            print(subtract(first_number, second_number))
-            continue
+            elif operation == 2:
+                print(subtract(first_number, second_number))
+                continue
 
-        elif operation == 3:
-            print(multiply(first_number, second_number))
-            continue
+            elif operation == 3:
+                print(multiply(first_number, second_number))
+                continue
 
-        elif operation == 4:
-            print(divide(first_number, second_number))
-            continue
+            elif operation == 4:
+                print(divide(first_number, second_number))
+                continue
 
-        elif operation == 5:
-            print("Thanks for using the calculator")
-            break
+            elif operation == 5:
+                print("Thanks for using the calculator")
+                break
 
-        else:
-            print("Unknown input")
+            else:
+                print("Unknown input")
 
-
-
-
-
-
-
-
-#
 
 
