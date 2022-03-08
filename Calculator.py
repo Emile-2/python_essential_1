@@ -7,7 +7,7 @@ def operation_list():
     4. Divide
     5. Exit
           """)
-
+#add function
 def add(number_one, number_two):
     return f"{number_one} + {number_two} = {number_one + number_two}"
 
@@ -20,30 +20,23 @@ def multiply(number_one, number_two):
 def divide(number_one, number_two):
     return f"{number_one} / {number_two} = {number_one / number_two}"
 
-def number_one():
+def number_one(text):
     while True:
-        number_str = input("Please enter first number: ")
+        number_str = input(f"Please enter {text} number: ")
         if number_str.isdigit():
-            return int(number_str)
+            return float(number_str)
 
-def number_two():
-    while True:
-        number_str = input("Please enter second number: ")
-        if number_str.isdigit():
-            return int(number_str)
 
 if __name__ =='__main__':
     while True:
-        first_number = number_one()
-        second_number = number_two()
-        break
-
+        first_number = number_one("first")
+        second_number = number_one("second")
+        break #break needed otherwise this will loop over and over
 
     while True:
         # get input for operation selected
         operation_list()
 
-        #i orginally forgot to cast this input to an int, causing issues
         operation_str = input("Please select which operation: ")
         if operation_str.isdigit():
             operation = int(operation_str)
