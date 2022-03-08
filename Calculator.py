@@ -9,23 +9,23 @@ def operation_list():
           """)
 
 def add(number_one, number_two):
-    return number_one + number_two
+    return f"{number_one} + {number_two} = {number_one + number_two}"
 
 def subtract(number_one, number_two):
-    return number_one - number_two
+    return f"{number_one} - {number_two} = {number_one - number_two}"
 
 def multiply(number_one, number_two):
-    return number_one * number_two
+    return f"{number_one} x {number_two} = {number_one * number_two}"
 
 def divide(number_one, number_two):
-    return number_one / number_two
+    return f"{number_one} / {number_two} = {number_one / number_two}"
 
 if __name__ =='__main__':
 
     while True:
         #get input for numbers
         first_number_str = input("Please enter first number: ")
-        second_number_str = input("please enter second number")
+        second_number_str = input("please enter second number: ")
         if first_number_str.isdigit() and second_number_str.isdigit():
 
             first_number = int(first_number_str)
@@ -36,7 +36,7 @@ if __name__ =='__main__':
         # get input for operation selected
         operation_list()
         #i orginally forgot to cast this input to an int, causing issues
-        operation_str = input("Please select which operation")
+        operation_str = input("Please select which operation: ")
         if operation_str.isdigit():
             operation = int(operation_str)
         # operation = int(operation_str)
