@@ -20,22 +20,29 @@ def multiply(number_one, number_two):
 def divide(number_one, number_two):
     return f"{number_one} / {number_two} = {number_one / number_two}"
 
-if __name__ =='__main__':
-
+def number_one():
     while True:
-        #get input for numbers
-        first_number_str = input("Please enter first number: ")
+        number_str = input("Please enter first number: ")
+        if number_str.isdigit():
+            return int(number_str)
 
-        second_number_str = input("please enter second number: ")
-        if first_number_str.isdigit() and second_number_str.isdigit():
+def number_two():
+    while True:
+        number_str = input("Please enter second number: ")
+        if number_str.isdigit():
+            return int(number_str)
 
-            first_number = int(first_number_str)
-            second_number = int(second_number_str)
-            break
+if __name__ =='__main__':
+    while True:
+        first_number = number_one()
+        second_number = number_two()
+        break
+
 
     while True:
         # get input for operation selected
         operation_list()
+
         #i orginally forgot to cast this input to an int, causing issues
         operation_str = input("Please select which operation: ")
         if operation_str.isdigit():
