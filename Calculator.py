@@ -26,12 +26,7 @@ def number_one(text):
         if number_str.isdigit():
             return float(number_str)
 
-
-if __name__ =='__main__':
-    while True:
-        first_number = number_one("first")
-        second_number = number_one("second")
-        break #break needed otherwise this will loop over and over
+def calc_main():
 
     while True:
         # get input for operation selected
@@ -61,8 +56,16 @@ if __name__ =='__main__':
                 print("Thanks for using the calculator")
                 break
 
-            else:
-                print("Unknown input")
+        else:
+            print("Unknown input")
 
+if __name__ =='__main__':
 
+    while True:
+        first_number = number_one("first")
+        second_number = number_one("second")
+        break
 
+    while True:
+        calc_main()
+        break
