@@ -1,6 +1,6 @@
 #employee id
 
-def emplyee_id():
+def employee_id():
     while True:
         id = input("Please enter the employee ID: ")
         if id.isdigit():
@@ -9,7 +9,7 @@ def emplyee_id():
 
 
 #functions for name entry
-def name_entry(text):
+def name_entry(text = ""):
     while True:
         name = input(f"Please enter {text} name")
         if len(name.strip()) > 1:
@@ -35,7 +35,7 @@ def birth_month():
 
 
 #birth day
-def birth_month():
+def birth_day():
     while True:
         date = input("Please enter the day of birth:")
         if date.isdigit():
@@ -64,8 +64,42 @@ def uni():
 #create a dictionary
 
 #populate dictionary with dictionary of values
+#employee id as key, information as value
 
 students = {}
+
+while True:
+
+    id = employee_id()
+
+    students[f"{id}"] = {}
+    print(students)
+
+    students[f"{id}"]["first_name"] = f"{name_entry('First Name')}"
+    print(students)
+
+    students[f"{id}"]["last_name"] = f"{name_entry('Last Name')}"
+    print(students)
+
+    students[f"{id}"]["birth_year"] = f"{birth_year()}"
+    print(students)
+
+    students[f"{id}"]["birth_month"] = f"{birth_month()}"
+    print(students)
+
+    students[f"{id}"]["birth_day"] = f"{birth_day()}"
+    print(students)
+
+    students[f"{id}"]["position"] = f"{position()}"
+    print(students)
+
+    students[f"{id}"]["graduated"] = f"{uni()}"
+    print(students)
+
+
+
+
+
 
 
 
