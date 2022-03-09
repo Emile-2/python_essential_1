@@ -206,8 +206,8 @@ def retrieve_employee():
         elif data_retrieve_str.isalpha() and data_retrieve_str.capitalize() == "Q":
             break
 
-        if selection == 7:
-            break
+        # if selection == 7:
+        #     break
 def view_total():
     total_employees = len(employees.keys())
     return f"There are {total_employees} employees"
@@ -299,46 +299,5 @@ def update_employee():
 
 
     return f"There is a total of {len(employees.keys())} employees"
-if __name__ == "__main__":
 
-    while True:
-
-        selection = menu()
-
-        if selection == 1: #add employee option
-            while True:
-                add_employees()
-                break
-
-        elif selection == 2: #delete employee option
-            while True:
-                del_employee()
-                break
-
-        elif selection == 3:#View total number of employees
-            print(view_total())
-
-
-        elif selection == 4:
-            while True:
-                list_employee()
-                break
-            #list of employees
-
-        elif selection == 5:#retrieve data of employee by ID
-            while True:
-                retrieve_employee()
-                break
-
-        elif selection == 6:#Update employees data
-            while True:
-                update_employee()
-                break
-
-        elif selection == 7:
-            break
-
-        else:
-            print("invalid input")
-            continue
 
