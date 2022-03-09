@@ -1,4 +1,13 @@
-#employee id
+# employee id
+
+employees = {1:{"name":"emile",
+               "age": 30,
+            "city": "birmingham"},
+            2: {"name": "ben",
+                "age" : 50,
+                "city" : "london"}}
+
+
 def menu():
     selection = input("""
     1. Add new employee
@@ -14,9 +23,9 @@ def menu():
 
 
 def data_choice():
-    while True:
+    # while True:
 
-        data_choices_str = input("""
+    data_choices_str = input("""
         Which data would you like to update?
         1. First Name
         2. Last Name
@@ -29,27 +38,33 @@ def data_choice():
         9. Exit
         """)
 
-        if data_choices_str.isdigit() and data_update_str in range(1, 10):
-            data_choices = int(data_choices_str)
+    if data_choices_str.isdigit() and data_choices_str in range(1, 10):
+        data_choices = int(data_choices_str)
 
-            if data_choices == 1:
-                return 1
-            elif data_choices == 2:
-                return 2
-            elif data_choices == 3:
-                return 3
-            elif data_choices == 4:
-                return 4
-            elif data_choices == 5:
-                return 5
-            elif data_choices == 6:
-                return 6
-            elif data_choices == 7:
-                return 7
-            elif data_choices == 8:
-                return 8
-            elif data_choices == 9:
-                return 9
+        if data_choices == 1:
+            choice = "first_name"
+
+        # elif data_choices == 2:
+        #     return "last_name"
+        # elif data_choices == 3:
+        #     return 3
+        # elif data_choices == 4:
+        #     return 4
+        # elif data_choices == 5:
+        #     return 5
+        # elif data_choices == 6:
+        #     return 6
+        # elif data_choices == 7:
+        #     return 7
+        # elif data_choices == 8:
+        #     return 8
+        # elif data_choices == 9:
+        #     return 9
+        return choice
+        print(choice)
+
+
+
 
 
 def employee_id():
@@ -60,14 +75,15 @@ def employee_id():
             return id
 
 
-#functions for name entry
-def name_entry(text = ""):
+# functions for name entry
+def name_entry(text=""):
     while True:
         name = input(f"Please enter {text}: ")
         if len(name.strip()) > 1:
             return name
 
-#birth year
+
+# birth year
 def birth_year():
     while True:
         date = input("Please enter the birthyear: ")
@@ -76,7 +92,8 @@ def birth_year():
             if 1900 < date < 2004:
                 return int(date)
 
-#birth month
+
+# birth month
 def birth_month():
     while True:
         date = input("Please enter the birth month: ")
@@ -86,7 +103,7 @@ def birth_month():
                 return int(date)
 
 
-#birth day
+# birth day
 def birth_day():
     while True:
         date = input("Please enter the day of birth: ")
@@ -95,13 +112,15 @@ def birth_day():
             if date in range(1, 32):
                 return int(date)
 
-#position
+
+# position
 def position():
     while True:
         name = input(f"Please enter position of employee: ")
         return name
 
-#whether graduated from uni (boolean)
+
+# whether graduated from uni (boolean)
 def uni():
     while True:
         graduate = input("Did the employee graduate from uni? y/n: ")
@@ -113,79 +132,84 @@ def uni():
             else:
                 continue
 
-#create a dictionary
 
-#populate dictionary with dictionary of values
-#employee id as key, information as value
+# create a dictionary
+
+# populate dictionary with dictionary of values
+# employee id as key, information as value
 
 
 def add_employees():
-
     while True:
+
+
         id = employee_id()
 
-        students[f"{id}"] = {}
-        print(students)
+        employees[f"{id}"] = {}
 
-        students[f"{id}"]["first_name"] = f"{name_entry('First Name')}"
-        print(students)
 
-        students[f"{id}"]["last_name"] = f"{name_entry('Last Name')}"
-        print(students)
+        employees[f"{id}"]["first_name"] = f"{name_entry('First Name')}"
 
-        students[f"{id}"]["birth_year"] = f"{birth_year()}"
-        print(students)
 
-        students[f"{id}"]["birth_month"] = f"{birth_month()}"
-        print(students)
+        employees[f"{id}"]["last_name"] = f"{name_entry('Last Name')}"
 
-        students[f"{id}"]["birth_day"] = f"{birth_day()}"
-        print(students)
 
-        students[f"{id}"]["position"] = f"{position()}"
-        print(students)
+        employees[f"{id}"]["birth_year"] = f"{birth_year()}"
 
-        students[f"{id}"]["graduated"] = f"{uni()}"
-        print(students)
+
+        employees[f"{id}"]["birth_month"] = f"{birth_month()}"
+
+        employees[f"{id}"]["birth_day"] = f"{birth_day()}"
+
+
+        employees[f"{id}"]["position"] = f"{position()}"
+
+
+        employees[f"{id}"]["graduated"] = f"{uni()}"
+
+
+        return employees
+
 
 def del_employee():
-    print(students)
+    print(employees)
     while True:
         id_del_str = input("Enter ID of student you would like to remove, Press Q to go back")
 
         if id_del_str.isdigit():
             id_del = int(id_del_str)
-            # print(f"Employee {students[id_del]} has been deleted")
-            print(students.pop(id_del, "Key does not exist"))
+            # print(f"Employee {employees[id_del]} has been deleted")
+            employees.pop(id_del, "Key does not exist")
 
 
         elif id_del_str.isalpha() and id_del_str.capitalize() == "Q":
             break
 
-def retrieve_employee():
 
+def retrieve_employee():
     while True:
         data_retrieve_str = input("Please enter the ID of the employees you would like to view, press Q to go back")
         if data_retrieve_str.isdigit():
             try:
                 data_retrieve = int(data_retrieve_str)
-                print(students[data_retrieve])
+                print(employees[data_retrieve])
             except KeyError:
                 print("Id incorrect")
 
         elif data_retrieve_str.isalpha() and data_retrieve_str.capitalize() == "Q":
             break
 
+        if selection == 7:
+            break
 
+def view_total():
 
+    return f"There is a total of {len(employees.keys())} employees"
 if __name__ == "__main__":
-    students = {1:{"name":"emile",
-               "age": 30,
-            "city": "birmingham"}
-                }
-    while True:
-        selection = menu()
 
+    while True:
+
+        selection = menu()
 
         if selection == 1: #add employee option
             while True:
@@ -198,8 +222,8 @@ if __name__ == "__main__":
                 break
 
         elif selection == 3:#View total number of employees
+            print(view_total())
 
-            print(f"There is a total of {len(students.keys())} employees" )
 
         elif selection == 4:
             pass#list of employees
@@ -213,34 +237,18 @@ if __name__ == "__main__":
 
             while True:
                 data_update_str = input("Enter the ID of the Employee you would like to update: ")
+                #if you put in the correct id move on
                 if data_update_str.isdigit():
                     data_update = int(data_update_str)
-                    print(students[data_update])
-                    data_choice = data_choice()
-                    print(students[data_update][data_choice()])
+                    try:
+                        #show info on id that was entered
+                        print(employees[data_update])
+                        break
+                    except KeyError:
+                        print("unrecognized ID")
 
+                        #once i have shown the info for the correct Id
+                        #i need to ask what info they would like to update
 
-
-
-
-
-
-
-
-
-
-
-
-
-        if selection == 7:
-            break
-
-
-
-
-
-
-
-
-
-
+                update_choice = data_choice()
+                print(employees[data_update])
