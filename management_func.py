@@ -1,4 +1,16 @@
 #employee id
+def menu():
+    selection = input("""
+    1. Add new employee
+    2. Delete an employee
+    3. View total number of employees
+    4. List of employees
+    5. Retrieve data of employee by ID
+    6. Update employees data
+    7. Exit: 
+    """)
+    if selection.isdigit() and int(selection) in range(1, 8):
+        return int(selection)
 
 def employee_id():
     while True:
@@ -66,35 +78,55 @@ def uni():
 #populate dictionary with dictionary of values
 #employee id as key, information as value
 
-students = {}
 
-while True:
+def add_employees():
 
-    id = employee_id()
+    while True:
+        id = employee_id()
 
-    students[f"{id}"] = {}
-    print(students)
+        students[f"{id}"] = {}
+        print(students)
 
-    students[f"{id}"]["first_name"] = f"{name_entry('First Name')}"
-    print(students)
+        students[f"{id}"]["first_name"] = f"{name_entry('First Name')}"
+        print(students)
 
-    students[f"{id}"]["last_name"] = f"{name_entry('Last Name')}"
-    print(students)
+        students[f"{id}"]["last_name"] = f"{name_entry('Last Name')}"
+        print(students)
 
-    students[f"{id}"]["birth_year"] = f"{birth_year()}"
-    print(students)
+        students[f"{id}"]["birth_year"] = f"{birth_year()}"
+        print(students)
 
-    students[f"{id}"]["birth_month"] = f"{birth_month()}"
-    print(students)
+        students[f"{id}"]["birth_month"] = f"{birth_month()}"
+        print(students)
 
-    students[f"{id}"]["birth_day"] = f"{birth_day()}"
-    print(students)
+        students[f"{id}"]["birth_day"] = f"{birth_day()}"
+        print(students)
 
-    students[f"{id}"]["position"] = f"{position()}"
-    print(students)
+        students[f"{id}"]["position"] = f"{position()}"
+        print(students)
 
-    students[f"{id}"]["graduated"] = f"{uni()}"
-    print(students)
+        students[f"{id}"]["graduated"] = f"{uni()}"
+        print(students)
+
+
+
+
+if __name__ == "__main__":
+    students = {}
+
+    while True:
+        selection = menu()
+
+
+        if selection == 2:
+            while True:
+                add_employees()
+                continue
+
+
+        if selection == 7:
+            break
+
 
 
 
