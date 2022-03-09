@@ -1,11 +1,21 @@
 # employee id
 
-employees = {1:{"name":"emile",
-               "age": 30,
-            "city": "birmingham"},
-            2: {"name": "ben",
-                "age" : 50,
-                "city" : "london"}}
+employees = {1:{"first_name":"emile",
+                "last_name" : "thompson",
+                "birth_year" : 1991,
+                "birth_month" : 8,
+                "birth_day" : 12,
+                "position" : "unknown",
+                "graduated" : True
+                },
+            2: {"first_name":"ben",
+                "last_name" : "shield",
+                "birth_year" : 1981,
+                "birth_month" : 2,
+                "birth_day" : 16,
+                "position" : "unknown",
+                "graduated" : True
+                }}
 
 
 def menu():
@@ -25,7 +35,7 @@ def menu():
 def data_choice():
     # while True:
 
-    data_choices_str = input("""
+    print("""
         Which data would you like to update?
         1. First Name
         2. Last Name
@@ -34,37 +44,35 @@ def data_choice():
         5. Day of Birth
         6. Position
         7. Graduated
-        8. ID
-        9. Exit
+        8. Exit
         """)
 
-    if data_choices_str.isdigit() and data_choices_str in range(1, 10):
-        data_choices = int(data_choices_str)
-
-        if data_choices == 1:
-            choice = "first_name"
-
-        # elif data_choices == 2:
-        #     return "last_name"
-        # elif data_choices == 3:
-        #     return 3
-        # elif data_choices == 4:
-        #     return 4
-        # elif data_choices == 5:
-        #     return 5
-        # elif data_choices == 6:
-        #     return 6
-        # elif data_choices == 7:
-        #     return 7
-        # elif data_choices == 8:
-        #     return 8
-        # elif data_choices == 9:
-        #     return 9
-        return choice
-        print(choice)
 
 
-
+    # if data_choices_str.isdigit() and data_choices_str in range(1, 10):
+    #     data_choices = int(data_choices_str)
+    #
+    #     if data_choices == 1:
+    #         choice = "first_name"
+    #
+    #     # elif data_choices == 2:
+    #     #     return "last_name"
+    #     # elif data_choices == 3:
+    #     #     return 3
+    #     # elif data_choices == 4:
+    #     #     return 4
+    #     # elif data_choices == 5:
+    #     #     return 5
+    #     # elif data_choices == 6:
+    #     #     return 6
+    #     # elif data_choices == 7:
+    #     #     return 7
+    #     # elif data_choices == 8:
+    #     #     return 8
+    #     # elif data_choices == 9:
+    #     #     return 9
+    #     return choice
+    #     print(choice)
 
 
 def employee_id():
@@ -142,31 +150,23 @@ def uni():
 def add_employees():
     while True:
 
-
         id = employee_id()
 
         employees[f"{id}"] = {}
 
-
         employees[f"{id}"]["first_name"] = f"{name_entry('First Name')}"
-
 
         employees[f"{id}"]["last_name"] = f"{name_entry('Last Name')}"
 
-
         employees[f"{id}"]["birth_year"] = f"{birth_year()}"
-
 
         employees[f"{id}"]["birth_month"] = f"{birth_month()}"
 
         employees[f"{id}"]["birth_day"] = f"{birth_day()}"
 
-
         employees[f"{id}"]["position"] = f"{position()}"
 
-
         employees[f"{id}"]["graduated"] = f"{uni()}"
-
 
         return employees
 
@@ -183,8 +183,15 @@ def del_employee():
 
 
         elif id_del_str.isalpha() and id_del_str.capitalize() == "Q":
-            break
 
+            break
+def list_employee():
+    main_key = employees.keys()
+
+    for keys in main_key:
+        first = employees[keys]["first_name"]
+        last = employees[keys]["last_name"]
+        print(f"{first} {last}")
 
 def retrieve_employee():
     while True:
@@ -201,8 +208,95 @@ def retrieve_employee():
 
         if selection == 7:
             break
-
 def view_total():
+    total_employees = len(employees.keys())
+    return f"There are {total_employees} employees"
+
+def update_employee():
+
+    while True:
+        data_update_str = input("Enter the ID of the Employee you would like to update, or type Q to quit: ")
+        #if you put in the correct id move on
+        if data_update_str.isdigit():
+            data_update = int(data_update_str)
+            try:
+                #show info on id that was entered
+                print(employees[data_update])
+
+            except KeyError:
+                print("unrecognized ID")
+
+            data_choice()
+            choice_str = input("Please enter option number, or type Q to exit: ")
+            if choice_str.isdigit() and int(choice_str) in range(1, 10):
+                choice = int(choice_str)
+
+
+                if choice == 1:
+                    option = "first_name"
+                    print(employees[data_update][option])
+                    change = name_entry("New First Name")
+                    employees[data_update][option] = change
+                    print(employees[data_update])
+                    continue
+
+                elif choice == 2:
+                    option = "last_name"
+                    print(employees[data_update][option])
+                    change = name_entry("Enter new Last Name")
+                    employees[data_update][option] = change
+                    print(employees[data_update])
+                    continue
+
+
+                elif choice == 3:
+                    option = "birth_year"
+                    print(employees[data_update][option])
+                    change = birth_year()
+                    employees[data_update][option] = change
+                    print(employees[data_update])
+                    continue
+
+                elif choice == 4:
+                    option = "birth_month"
+                    print(employees[data_update][option])
+                    change = birth_month()
+                    employees[data_update][option] = change
+                    print(employees[data_update])
+                    continue
+
+                elif choice == 5:
+                    option = "birth_day"
+                    print(employees[data_update][option])
+                    change = birth_day()
+                    employees[data_update][option] = change
+                    print(employees[data_update])
+                    continue
+
+                elif choice == 6:
+                    option = "position"
+                    print(employees[data_update][option])
+                    change = position()
+                    employees[data_update][option] = change
+                    print(employees[data_update])
+                    continue
+
+                elif choice == 7:
+                    option = "graduated"
+                    print(employees[data_update][option])
+                    change = uni()
+                    employees[data_update][option] = change
+                    print(employees[data_update])
+                    continue
+
+                elif choice == 8:
+                    break
+
+            elif choice_str.upper() == "Q":
+                break
+        elif data_update_str.capitalize() == "Q":
+            break
+
 
     return f"There is a total of {len(employees.keys())} employees"
 if __name__ == "__main__":
@@ -226,7 +320,10 @@ if __name__ == "__main__":
 
 
         elif selection == 4:
-            pass#list of employees
+            while True:
+                list_employee()
+                break
+            #list of employees
 
         elif selection == 5:#retrieve data of employee by ID
             while True:
@@ -234,21 +331,14 @@ if __name__ == "__main__":
                 break
 
         elif selection == 6:#Update employees data
-
             while True:
-                data_update_str = input("Enter the ID of the Employee you would like to update: ")
-                #if you put in the correct id move on
-                if data_update_str.isdigit():
-                    data_update = int(data_update_str)
-                    try:
-                        #show info on id that was entered
-                        print(employees[data_update])
-                        break
-                    except KeyError:
-                        print("unrecognized ID")
+                update_employee()
+                break
 
-                        #once i have shown the info for the correct Id
-                        #i need to ask what info they would like to update
+        elif selection == 7:
+            break
 
-                update_choice = data_choice()
-                print(employees[data_update])
+        else:
+            print("invalid input")
+            continue
+
